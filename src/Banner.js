@@ -3,7 +3,7 @@ import axios from './axios';
 import requests from './requests';
 import './Banner.css';
 
-const base_url = "https://image.tmdb.org/t/p/original/";
+const base_url = "https://image.tmdb.org/v1/t/p/original/";
 
 
 function Banner(props) {
@@ -11,7 +11,6 @@ function Banner(props) {
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(requests.fetchNetflixOriginals);
-            // console.log(request);
             
             setMovie(
                 request.data.results[Math.floor(Math.random() * (request.data.results.length - 1))]
@@ -25,7 +24,7 @@ function Banner(props) {
 
 
     function truncate(str, n) {
-        return str?.length > n ? str.substr(0, n-1) + "..." : str;
+        return str?.length > n ? str.substr(0, n-1) + "loading..." : str;
     }
 
     return (
@@ -49,9 +48,10 @@ function Banner(props) {
                 </div>
                 <h1 className="banner_description">
                     {truncate(movie?.overview, 150)}
+			{truncate(movie?.description, 150}
                 </h1>
             </div>
-            <div className="banner--fadeBottom">
+            <div className="banner--fadeBottom--fadeWhenScroll">
 
             </div>
         </header>

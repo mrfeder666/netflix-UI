@@ -2,12 +2,14 @@
     color: white;
     object-fit: contain;
     height: 448px;
+drop-shadow: 1px solid black;
 }
 
 .banner_contents{
     margin-left: 30px;
     padding-top: 140px;
     height: 190px;
+border-radius: 2px;
 }
 
 .banner_title {
